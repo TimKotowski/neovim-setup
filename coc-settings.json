@@ -1,0 +1,17 @@
+{
+  "tsserver.npm": "/usr/bin/npm",
+  "eslint.filetypes": ["javascript", "typescript"],
+  "typescript.suggest.completeFunctionCalls": false,
+  "javascript.suggest.completeFunctionCalls": false,
+  "coc.preferences.snippets.enable": false,
+  "diagnostic.enable": false,
+  "signature.enable": false,
+  "languageserver": {
+    "golang": {
+      "command": "gopls",
+      "disableDynamicRegister": true,
+      "rootPatterns": ["go.mod", ".vim/", ".git/", ".hg/"],
+      "filetypes": ["go"]
+    }
+  }
+}
