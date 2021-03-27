@@ -4,7 +4,6 @@
   "typescript.suggest.completeFunctionCalls": false,
   "javascript.suggest.completeFunctionCalls": false,
   "coc.preferences.snippets.enable": false,
-  "diagnostic.enable": false,
   "signature.enable": false,
   "languageserver": {
     "golang": {
