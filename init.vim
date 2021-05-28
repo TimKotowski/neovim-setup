@@ -17,17 +17,15 @@ Plug 'pantharshit00/vim-prisma'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'airblade/vim-rooter'
-
-" code change
-"Plug 'patstockwell/vim-monokai-tasty'
+"Plug 'doums/darcula'
 
 call plug#end()
 "'' END PLUG ''"
-"Color Scheme
-"colorscheme vim-monokai-tasty
-"
 colorscheme peachpuff
 "set termguicolors     " enable true colors support
+"colorscheme darcula
+"set background=dark
+
 set hidden
 "set shortmess+=c
 set ruler
@@ -35,6 +33,8 @@ set tabstop=2
 set shiftwidth=2
 
 set signcolumn=no
+"hi Comment guifg=#02b202
+
 hi Comment ctermfg=green
 
 "hi CursorLine   ctermbg=NONE cterm=NONE  
@@ -53,6 +53,7 @@ set smartindent
 set laststatus=0
 set incsearch
 set shortmess+=c
+
 " Use <c-space> to trigger completion.
 "noremap <silent><expr> <c-space> coc#refresh()
 
@@ -172,6 +173,10 @@ nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list.
 nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR> 
 
+nnoremap <S-Up> :m-2<CR>
+nnoremap <S-Down> :m+<CR>
+inoremap <S-Up> <Esc>:m-2<CR>
+inoremap <S-Down> <Esc>:m+<CR>
 
 " disable vim-go :GoDef short cut (gd)
 " this is handled by LanguageClient [LC]
@@ -197,6 +202,27 @@ let g:go_highlight_build_constraints = 1
 let g:go_highlight_generate_tags = 1
 let g:go_highlight_variable_declarations = 1
 let g:go_highlight_variable_assignments = 1
+
+"hi! link CocErrorSign ErrorSign
+"hi! link CocWarningSign WarningSign
+"hi! link CocInfoSign InfoSign
+"hi! link CocHintSign HintSign
+"hi! link CocErrorFloat Pmenu
+"hi! link CocWarningFloat Pmenu
+"hi! link CocInfoFloat Pmenu
+"hi! link CocHintFloat Pmenu
+"hi! link CocHighlightText IdentifierUnderCaret
+"hi! link CocHighlightRead IdentifierUnderCaret
+"hi! link CocHighlightWrite IdentifierUnderCaretWrite
+"hi! link CocErrorHighlight CodeError
+"hi! link CocWarningHighlight CodeWarning
+"hi! link CocInfoHighlight CodeInfo
+"hi! link CocHintHighlight CodeHint
+"
+"hi! link GitGutterAdd GitAddStripe
+"hi! link GitGutterChange GitChangeStripe
+"hi! link GitGutterDelete GitDeleteStripe
+let g:gitgutter_sign_removed = '▶'
 
 
 " Enable per-command history.
