@@ -17,26 +17,32 @@ Plug 'pantharshit00/vim-prisma'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'airblade/vim-rooter'
-"Plug 'doums/darcula'
+Plug 'rust-lang/rust.vim'
+
 
 call plug#end()
 "'' END PLUG ''"
 colorscheme peachpuff
 "set termguicolors     " enable true colors support
-"colorscheme darcula
-"set background=dark
+
+"NEW
+
+set shiftwidth=4
+set softtabstop=4
+set tabstop=4
+set noexpandtab
+set noshowmode
+set relativenumber
 
 set hidden
 "set shortmess+=c
 set ruler
-set tabstop=2
-set shiftwidth=2
 
 set signcolumn=no
 "hi Comment guifg=#02b202
 
 hi Comment ctermfg=green
-
+hi SpecialComment ctermfg=green
 "hi CursorLine   ctermbg=NONE cterm=NONE  
 set autochdir
 " Mouse support
@@ -48,7 +54,7 @@ set hlsearch
 "set nohlsearch
 set nofoldenable    " disable folding
 set nowrap
-set updatetime=50
+set updatetime=300
 set smartindent
 set laststatus=0
 set incsearch
@@ -127,17 +133,17 @@ nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 
 "Nerd Tree settings
-nnoremap <leader>n :NERDTreeFocus<CR>
-nnoremap <C-n> :NERDTree<CR>
+"nnoremap <leader>n :NERDTreeFocus<CR>
+"nnoremap <C-n> :NERDTree<CR>
 nnoremap tt :NERDTreeToggle<CR>
-nnoremap <C-f> :NERDTreeFind<CR>
+"nnoremap <C-f> :NERDTreeFind<CR>
 let NERDTreeShowHidden=1
 let NERDTreeQuitOnOpen=1
 let NERDTreeMinimalUI=1
 let NERDTreeDIrArrows=1
 " Start NERDTree. If a file is specified, move the cursor to its window.
 autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * NERDTree | if argc() > 0 || exists("s:std_in") | wincmd p | endif
+"autocmd VimEnter * NERDTree | if argc() > 0 || exists("s:std_in") | wincmd p | endif
 let g:NERDTreeDirArrowExpandable = '▸'
 let g:NERDTreeDirArrowCollapsible = '▾'
 " Use tab for trigger completion with characters ahead and navigate.
@@ -203,25 +209,6 @@ let g:go_highlight_generate_tags = 1
 let g:go_highlight_variable_declarations = 1
 let g:go_highlight_variable_assignments = 1
 
-"hi! link CocErrorSign ErrorSign
-"hi! link CocWarningSign WarningSign
-"hi! link CocInfoSign InfoSign
-"hi! link CocHintSign HintSign
-"hi! link CocErrorFloat Pmenu
-"hi! link CocWarningFloat Pmenu
-"hi! link CocInfoFloat Pmenu
-"hi! link CocHintFloat Pmenu
-"hi! link CocHighlightText IdentifierUnderCaret
-"hi! link CocHighlightRead IdentifierUnderCaret
-"hi! link CocHighlightWrite IdentifierUnderCaretWrite
-"hi! link CocErrorHighlight CodeError
-"hi! link CocWarningHighlight CodeWarning
-"hi! link CocInfoHighlight CodeInfo
-"hi! link CocHintHighlight CodeHint
-"
-"hi! link GitGutterAdd GitAddStripe
-"hi! link GitGutterChange GitChangeStripe
-"hi! link GitGutterDelete GitDeleteStripe
 let g:gitgutter_sign_removed = '▶'
 
 
@@ -290,3 +277,8 @@ command! -bang -nargs=* GGrep
   \   'git grep --line-number '.shellescape(<q-args>), 0,
   \   fzf#vim#with_preview({'dir': systemlist('git rev-parse --show-toplevel')[0]}), <bang>0)
 
+"Rust
+let g:rustfmt_autosave = 1
+let g:rustfmt_emit_files = 1
+let g:rustfmt_fail_silently = 0
+let g:rust_clip_command = 'xclip -selection clipboard'

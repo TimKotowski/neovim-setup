@@ -1,10 +1,12 @@
 {
   "tsserver.npm": "/usr/bin/npm",
-  "eslint.filetypes": ["javascript", "typescript"],
+  // "eslint.filetypes": ["javascript", "typescript"],
   "typescript.suggest.completeFunctionCalls": false,
   "javascript.suggest.completeFunctionCalls": false,
   "coc.preferences.snippets.enable": false,
   "signature.enable": false,
+  "rust-analyzer.inlayHints.enable": false,
+  "rust-analyzer.callInfo.full": false,
   "languageserver": {
     "golang": {
       "command": "gopls",
